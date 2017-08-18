@@ -2,8 +2,14 @@
 {
     internal interface IDataWriter
     {
-        void WriteConnectionLoss();
+        /// <summary>
+        /// Writes connection lost information into the file
+        /// </summary>
+        void WriteConnectionLost();
 
-        void WriteConnectionRestore();
+        /// <summary>
+        /// Writes connection restored information into the file
+        /// </summary>
+        void WriteConnectionRestored();
     }
 }
