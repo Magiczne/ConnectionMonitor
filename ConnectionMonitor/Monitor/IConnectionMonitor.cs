@@ -7,5 +7,10 @@
         /// </summary>
         /// <returns>Internet connection is present</returns>
         ConnectionStatus CheckConnection();
+
+        /// <summary>
+        /// Starts monitoring
+        /// </summary>
+        void Start();
     }
 }

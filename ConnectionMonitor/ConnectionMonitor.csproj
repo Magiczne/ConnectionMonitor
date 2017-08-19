@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Monitor\ConnectionMonitor.cs" />
+    <Compile Include="Monitor\ConnectionStatus.cs" />
     <Compile Include="Monitor\IConnectionMonitor.cs" />
     <Compile Include="Writer\IDataWriter.cs" />
     <Compile Include="Program.cs" />
