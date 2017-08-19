@@ -5,6 +5,9 @@ namespace ConnectionMonitor.Writer
 {
     internal class TxtWriter : IDataWriter
     {
+        /// <summary>
+        /// Path of the log file being used
+        /// </summary>
         public string FilePath { get; }
 
         public TxtWriter()
@@ -24,18 +27,27 @@ namespace ConnectionMonitor.Writer
             }
         }
 
+        /// <summary>
+        /// Writes connection lost information into the file
+        /// </summary>
         public void ConnectionLost()
         {
             var message = $"[{DateTime.Now:d}] Connection Lost";
             File.AppendAllText(FilePath, message);
         }
 
+        /// <summary>
+        /// Writes connection restored information into the file
+        /// </summary>
         public void ConnectionRestored()
         {
             var message = $"[{DateTime.Now:d}] Connection Restored";
             File.AppendAllText(FilePath, message);
         }
 
+        /// <summary>
+        /// Writed monitoring started information into the file
+        /// </summary>
         public void MonitoringStarted()
         {
             var message = $"[{DateTime.Now:d}] Monitoring started";
