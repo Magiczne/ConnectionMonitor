@@ -1,7 +1,7 @@
 ﻿namespace ConnectionMonitor.Monitor
 {
     /// <summary>
-    /// Status of the connection
+    ///     Status of the connection
     /// </summary>
     internal enum ConnectionStatus
     {

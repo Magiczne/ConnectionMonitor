@@ -5,11 +5,6 @@ namespace ConnectionMonitor.Writer
 {
     internal class TxtWriter : IDataWriter
     {
-        /// <summary>
-        /// Path of the log file being used
-        /// </summary>
-        public string FilePath { get; }
-
         public TxtWriter()
         {
             var dir = Path.Combine("Logs", $"{DateTime.Now:dd-MM-yyyy}");
@@ -17,18 +12,19 @@ namespace ConnectionMonitor.Writer
             FilePath = Path.Combine(dir, $"{DateTime.Now:hh-mm-ss}.txt");
 
             if (!Directory.Exists(dir))
-            {
                 Directory.CreateDirectory(dir);
-            }
 
             if (!File.Exists(FilePath))
-            {
                 File.Create(FilePath).Close();
-            }
         }
 
         /// <summary>
-        /// Writes connection lost information into the file
+        ///     Path of the log file being used
+        /// </summary>
+        public string FilePath { get; }
+
+        /// <summary>
+        ///     Writes connection lost information into the file
         /// </summary>
         public void ConnectionLost()
         {
@@ -37,7 +33,7 @@ namespace ConnectionMonitor.Writer
         }
 
         /// <summary>
-        /// Writes connection restored information into the file
+        ///     Writes connection restored information into the file
         /// </summary>
         public void ConnectionRestored()
         {
@@ -46,7 +42,7 @@ namespace ConnectionMonitor.Writer
         }
 
         /// <summary>
-        /// Writed monitoring started information into the file
+        ///     Writed monitoring started information into the file
         /// </summary>
         public void MonitoringStarted()
         {

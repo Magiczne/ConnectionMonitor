@@ -8,17 +8,17 @@ namespace ConnectionMonitor.Monitor
     internal class ConnectionMonitor : IConnectionMonitor
     {
         /// <summary>
-        /// Data Writer used to monitor changes
-        /// </summary>
-        private readonly IDataWriter _writer;
-
-        /// <summary>
-        /// Timer used to execute connection checking
+        ///     Timer used to execute connection checking
         /// </summary>
         private readonly Timer _timer;
 
         /// <summary>
-        /// Current connection status
+        ///     Data Writer used to monitor changes
+        /// </summary>
+        private readonly IDataWriter _writer;
+
+        /// <summary>
+        ///     Current connection status
         /// </summary>
         private ConnectionStatus _currentStatus;
 
@@ -30,7 +30,7 @@ namespace ConnectionMonitor.Monitor
         }
 
         /// <summary>
-        /// Starts monitoring
+        ///     Starts monitoring
         /// </summary>
         public void Start()
         {
@@ -40,36 +40,7 @@ namespace ConnectionMonitor.Monitor
         }
 
         /// <summary>
-        /// Checks connection and invokes writer
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="elapsedEventArgs"></param>
-        private void TimerTick(object sender, ElapsedEventArgs elapsedEventArgs)
-        {
-            var status = CheckConnection();
-
-            if (status == _currentStatus)
-            {
-                return;
-            }
-
-            _currentStatus = status;
-
-            switch (_currentStatus)
-            {
-                case ConnectionStatus.Connected:
-                    _writer.ConnectionRestored();
-                    break;
-                case ConnectionStatus.NotConnected:
-                    _writer.ConnectionLost();
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
-        }
-
-        /// <summary>
-        /// Checks for internet connections and returns status
+        ///     Checks for internet connections and returns status
         /// </summary>
         /// <returns>Internet connection is present</returns>
         public ConnectionStatus CheckConnection()
@@ -87,6 +58,33 @@ namespace ConnectionMonitor.Monitor
             catch (WebException)
             {
                 return ConnectionStatus.NotConnected;
+            }
+        }
+
+        /// <summary>
+        ///     Checks connection and invokes writer
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="elapsedEventArgs"></param>
+        private void TimerTick(object sender, ElapsedEventArgs elapsedEventArgs)
+        {
+            var status = CheckConnection();
+
+            if (status == _currentStatus)
+                return;
+
+            _currentStatus = status;
+
+            switch (_currentStatus)
+            {
+                case ConnectionStatus.Connected:
+                    _writer.ConnectionRestored();
+                    break;
+                case ConnectionStatus.NotConnected:
+                    _writer.ConnectionLost();
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
         }
     }
