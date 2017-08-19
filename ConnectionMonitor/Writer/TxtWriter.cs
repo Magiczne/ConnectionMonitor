@@ -28,7 +28,7 @@ namespace ConnectionMonitor.Writer
         /// </summary>
         public void ConnectionLost()
         {
-            var message = $"[{DateTime.Now:d}] Connection Lost";
+            var message = $"[{DateTime.Now:hh:mm:ss}] Connection Lost{Environment.NewLine}";
             File.AppendAllText(FilePath, message);
         }
 
@@ -37,7 +37,7 @@ namespace ConnectionMonitor.Writer
         /// </summary>
         public void ConnectionRestored()
         {
-            var message = $"[{DateTime.Now:d}] Connection Restored";
+            var message = $"[{DateTime.Now:hh:mm:ss}] Connection Restored{Environment.NewLine}";
             File.AppendAllText(FilePath, message);
         }
 
@@ -46,7 +46,7 @@ namespace ConnectionMonitor.Writer
         /// </summary>
         public void MonitoringStarted()
         {
-            var message = $"[{DateTime.Now:d}] Monitoring started";
+            var message = $"[{DateTime.Now:hh:mm:ss}] Monitoring started{Environment.NewLine}";
             File.AppendAllText(FilePath, message);
         }
     }
