@@ -23,5 +23,11 @@ namespace ConnectionMonitor.Writer
             var message = $"[{DateTime.Now:d}] Connection Restored";
             File.AppendAllText(Path, message);
         }
+
+        public void MonitoringStarted()
+        {
+            var message = $"[{DateTime.Now:d}] Monitoring started";
+            File.AppendAllText(Path, message);
+        }
     }
 }

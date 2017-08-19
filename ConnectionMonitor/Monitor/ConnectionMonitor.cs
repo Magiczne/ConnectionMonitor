@@ -34,6 +34,7 @@ namespace ConnectionMonitor.Monitor
         /// </summary>
         public void Start()
         {
+            _writer.MonitoringStarted();
             _currentStatus = CheckConnection();
             _timer.Start();
         }

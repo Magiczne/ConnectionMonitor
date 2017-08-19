@@ -11,5 +11,10 @@
         /// Writes connection restored information into the file
         /// </summary>
         void WriteConnectionRestored();
+
+        /// <summary>
+        /// Writed monitoring started information into the file
+        /// </summary>
+        void MonitoringStarted();
     }
 }
