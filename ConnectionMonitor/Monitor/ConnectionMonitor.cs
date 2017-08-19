@@ -4,7 +4,7 @@ namespace ConnectionMonitor.Monitor
 {
     internal class ConnectionMonitor : IConnectionMonitor
     {
-        public bool CheckConnection()
+        public ConnectionStatus CheckConnection()
         {
             try
             {
@@ -12,13 +12,13 @@ namespace ConnectionMonitor.Monitor
                 {
                     using (client.OpenRead("http://clients3.google.com/generate_204"))
                     {
-                        return true;
+                        return ConnectionStatus.Connected;
                     }
                 }
             }
             catch (WebException)
             {
-                return false;
+                return ConnectionStatus.NotConnected;
             }
         }
     }
