@@ -58,10 +58,10 @@ namespace ConnectionMonitor.Monitor
             switch (_currentStatus)
             {
                 case ConnectionStatus.Connected:
-                    _writer.WriteConnectionRestored();
+                    _writer.ConnectionRestored();
                     break;
                 case ConnectionStatus.NotConnected:
-                    _writer.WriteConnectionLost();
+                    _writer.ConnectionLost();
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();

@@ -5,12 +5,12 @@
         /// <summary>
         /// Writes connection lost information into the file
         /// </summary>
-        void WriteConnectionLost();
+        void ConnectionLost();
 
         /// <summary>
         /// Writes connection restored information into the file
         /// </summary>
-        void WriteConnectionRestored();
+        void ConnectionRestored();
 
         /// <summary>
         /// Writed monitoring started information into the file

@@ -12,13 +12,13 @@ namespace ConnectionMonitor.Writer
             Path = System.IO.Path.Combine("Logs", $"{DateTime.Now:dd-MM-yyyy}", $"{DateTime.Now:hh-mm-ss}.txt");
         }
 
-        public void WriteConnectionLost()
+        public void ConnectionLost()
         {
             var message = $"[{DateTime.Now:d}] Connection Lost";
             File.AppendAllText(Path, message);
         }
 
-        public void WriteConnectionRestored()
+        public void ConnectionRestored()
         {
             var message = $"[{DateTime.Now:d}] Connection Restored";
             File.AppendAllText(Path, message);
