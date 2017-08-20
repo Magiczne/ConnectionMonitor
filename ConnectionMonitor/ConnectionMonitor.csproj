@@ -45,6 +45,7 @@
     <Compile Include="Monitor\ConnectionMonitor.cs" />
     <Compile Include="Monitor\ConnectionStatus.cs" />
     <Compile Include="Monitor\IConnectionMonitor.cs" />
+    <Compile Include="Writer\ConsoleWriter.cs" />
     <Compile Include="Writer\IDataWriter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
